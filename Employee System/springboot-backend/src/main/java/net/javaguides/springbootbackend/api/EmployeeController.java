@@ -50,7 +50,12 @@ public class EmployeeController {
 
     @DeleteMapping
     public int deleteAllEmployees() {
-        return employeeService.deleteAllEmployees();
+        return employeeService.deleteAllEmployees();    
+    }
+    
+    @DeleteMapping("/{id}")
+    public int deleteAllEmployeeById(@PathVariable String id) {
+        return employeeService.deleteEmployeeById(id);
     }
 
 

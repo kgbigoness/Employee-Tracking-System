@@ -138,10 +138,11 @@ public class EmployeeDataAccessService implements EmployeeDao{
 
     @Override
     public int deleteEmployeeById(String id) {
-        String query = "DELETE FROM employee WHERE employee_id='" + id + "'";
-        try(Connection connection = this.connect()) {
-            Statement stmt = connection.createStatement();
-            stmt.executeQuery(query);
+       String query = "DELETE FROM employee WHERE employee_id = ?";
+         try(Connection connection = this.connect();
+                PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setString(1, id);
+            pstmt.executeUpdate();
 
         } catch(SQLException e) {
             e.getMessage();
