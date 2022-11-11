@@ -14,6 +14,10 @@ class ListEmployeeComponent extends Component {
     this.deleteEmployee = this.deleteEmployeeBy.bind(this);
   }
 
+  viewEmploee(id) {
+    this.props.history.push(`/view-employee/${id}`);
+  }
+
   deleteEmployeeBy(id) {
     EmployeeService.deleteEmployeeById(id).then((res) => {
       this.setState({
@@ -79,6 +83,13 @@ class ListEmployeeComponent extends Component {
                     >
                       {" "}
                       Delete{" "}
+                    </button>
+                    <button
+                      style={{ marginLeft: "10px" }}
+                      onClick={() => this.viewEmploee(employee.id)}
+                      className="btn btn-secondary"
+                    >
+                      View
                     </button>
                   </td>
                 </tr>

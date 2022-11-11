@@ -6,6 +6,7 @@ import FooterComponent from "./components/FooterComponent";
 import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
 import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
 import React from "react";
+import ViewEmployeeComponent from "./components/ViewEmployeeComponent";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
             <Route
               path="/update-employee/:id"
               component={UpdateEmployeeComponent}
+            ></Route>
+            <Route
+              path="/view-employee/:id"
+              component={ViewEmployeeComponent}
             ></Route>
           </Switch>
         </div>
